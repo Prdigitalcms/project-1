@@ -41,7 +41,7 @@ export default function Contact() {
           >
             <Mail className="w-8 h-8 mx-auto mb-4 text-blue-500" />
             <h3 className="text-xl font-bold mb-2">Email Us</h3>
-            <p className="text-gray-400">support@prdigitalcms.com</p>
+            <p className="text-gray-400">prdigitalcms@gmail.com</p>
           </motion.div>
           
           <motion.div
@@ -51,7 +51,7 @@ export default function Contact() {
             className="bg-gray-900 p-8 rounded-2xl text-center"
           >
             <Phone className="w-8 h-8 mx-auto mb-4 text-blue-500" />
-            <h3 className="text-xl font-bold mb-2">Call Us</h3>
+            <h3 className="text-xl font-bold mb-2">Call Us:-7366042410 </h3>
             <p className="text-gray-400">Monday-Friday: 10am-6pm (ET)</p>
             <p className="text-gray-400">Saturday-Sunday: 12pm-7pm (ET)</p>
           </motion.div>
