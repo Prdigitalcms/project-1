@@ -56,16 +56,16 @@ export default function Footer() {
             © 2024 PR DIGITAL CMS. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="https://www.facebook.com/people/Digital-Pintu-Yadav/61563808907174/?mibextid=ZbWKwL" className="text-gray-400 hover:text-white">
+            <a href="https://www.facebook.com/share/18X6TNEBiJ/" className="text-gray-400 hover:text-white">
               <Facebook className="w-5 h-5" />
             </a>
             <a href="https://x.com/digitalpintu_" className="text-gray-400 hover:text-white">
               <Twitter className="w-5 h-5" />
             </a>
-            <a href="https://www.instagram.com/digitalpintuyadav/#" className="text-gray-400 hover:text-white">
+            <a href="https://www.instagram.com/pintuyadavofficial1" className="text-gray-400 hover:text-white">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="https://www.youtube.com/@pintuyadav-g5i" className="text-gray-400 hover:text-white">
+            <a href="https://www.youtube.com/@pintuyadav-j5q" className="text-gray-400 hover:text-white">
               <YoutubeIcon className="w-5 h-5" />
             </a>
           </div>
