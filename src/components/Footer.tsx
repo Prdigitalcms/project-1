@@ -53,7 +53,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 PR DIGITAL CMS. All rights reserved.
+            © PR DIGITAL CMS. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="https://www.facebook.com/share/18X6TNEBiJ/" className="text-gray-400 hover:text-white">
