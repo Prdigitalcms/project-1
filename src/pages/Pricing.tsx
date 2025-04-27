@@ -7,7 +7,7 @@ const pricingPlans = [
   
   {
     name: 'Unlimited Artist',
-    price: '2999',
+    price: '35.13',
     period: '/year',
     description: 'The MUST have plan for professional artists and labels.',
     highlight: 'BEST DEAL!',
@@ -17,7 +17,7 @@ const pricingPlans = [
   },
   {
     name: 'Limited Artist',
-    price: '1999',
+    price: '23.42',
     period: '/year',
     description: 'Release unlimited music plus advanced features to customize your releases.',
     color: 'from-pink-500 to-purple-500',
@@ -119,7 +119,7 @@ export default function Pricing() {
                 <h3 className="text-xl font-bold mb-4">{plan.name}</h3>
                 <div className="flex items-baseline mb-4">
                   <span className="text-4xl font-bold">
-                    {typeof plan.price === 'string' && plan.price.includes('Free') ? '' : '₹'}
+                    {typeof plan.price === 'string' && plan.price.includes('Free') ? '' : '$'}
                   </span>
                   <span className="text-5xl font-bold">{plan.price}</span>
                   <span className="text-gray-400 ml-2">{plan.period}</span>
