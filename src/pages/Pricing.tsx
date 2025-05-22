@@ -88,7 +88,7 @@ export default function Pricing() {
       </div>
 
       {/* Toggle Section */}
-      <div className="flex justify-center mb-16">
+      {/* <div className="flex justify-center mb-16">
         <div className="bg-gray-800 p-1 rounded-full inline-flex">
           <button className="px-6 py-2 rounded-full bg-white text-black font-medium">
             UNLIMITED PLANS
@@ -97,7 +97,7 @@ export default function Pricing() {
             PAY PER RELEASE
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full bg-400">
@@ -119,7 +119,7 @@ export default function Pricing() {
                 <h3 className="text-xl font-bold mb-4">{plan.name}</h3>
                 <div className="flex items-baseline mb-4">
                   <span className="text-4xl font-bold">
-                    {typeof plan.price === 'string' && plan.price.includes('Free') ? '' : '$'}
+                    {typeof plan.price === 'string' && plan.price.includes('Free') ? '' : ''}
                   </span>
                   <span className="text-5xl font-bold">{plan.price}</span>
                   <span className="text-gray-400 ml-2">{plan.period}</span>
