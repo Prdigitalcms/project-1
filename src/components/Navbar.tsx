@@ -25,7 +25,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-            <Link to="/pricing" className="text-white hover:text-gray-300">Pricing</Link>
+            <Link to="/pricing" className="text-white hover:text-gray-300">Dashboard</Link>
             <Link to="/services" className="text-white hover:text-gray-300">Services</Link>
             <Link to="/about" className="text-white hover:text-gray-300">About</Link>
             <Link to="/contact" className="text-white hover:text-gray-300">Contact</Link>
