@@ -6,9 +6,9 @@ import { Check } from 'lucide-react';
 const pricingPlans = [
   
   {
-    name: 'Unlimited Artist',
-    price: '35.13',
-    period: '/year',
+    name: 'Unlimited Lable',
+    price: '70%',
+    period: '/Lable',
     description: 'The MUST have plan for professional artists and labels.',
     highlight: 'BEST DEAL!',
     color: 'from-yellow-400 to-orange-500',
@@ -17,8 +17,8 @@ const pricingPlans = [
   },
   {
     name: 'Limited Artist',
-    price: '23.42',
-    period: '/year',
+    price: '75%',
+    period: '/Artist',
     description: 'Release unlimited music plus advanced features to customize your releases.',
     color: 'from-pink-500 to-purple-500',
     buttonColor: 'bg-gradient-to-r from-pink-500 to-purple-500',
@@ -126,7 +126,7 @@ export default function Pricing() {
                 </div>
                 <p className="text-gray-400 mb-6 min-h-[60px]">{plan.description}</p>
                 <button className={`w-full py-3 rounded-lg text-white font-medium mb-8 ${plan.buttonColor} hover:opacity-90 transition-opacity`}>
-                  GET STARTED
+                  EARN MONEY
                 </button>
                 <ul className="space-y-4">
                   {plan.features.map((feature, i) => (
