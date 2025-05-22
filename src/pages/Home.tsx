@@ -4,6 +4,9 @@ import Hero from '../components/Hero';
 import { Music, Youtube, Globe, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import VideoFooter from '../components/VideoFooter';
 import { button, source } from 'framer-motion/client';
+import Marquee from '../components/Marquee';
+
+
 
 
 export default function Home() {
@@ -39,7 +42,7 @@ export default function Home() {
       width: 120
     }
   ];
-
+<Marquee />
   const features = [
     {
       icon: <Music className="w-6 h-6" />,

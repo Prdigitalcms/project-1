@@ -4,6 +4,8 @@ import { Play } from 'lucide-react';
 import Pricing from '../pages/Pricing';
 import YouTube from 'react-youtube';
 import { a, link } from 'framer-motion/client';
+import Marquee from '../components/Marquee';
+
 
 export default function Hero() {
   return (
@@ -26,6 +28,7 @@ export default function Hero() {
 
 
         </div>
+        <Marquee />
       </div>
 
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
@@ -33,17 +36,20 @@ export default function Hero() {
           // initial={{ opacity: 0, y: 20 }}
           // animate={{ opacity: 1, y: 0 }}
           // transition={{ duration: 0.8 }}
-           className="text-5xl md:text-7xl font-bold font-display bg-gradient-to-r from-white via-sky-200 to-white bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300 transform-gpu animate-gradient-x text-center mb-12">
+           className="text-5xl md:text-7xl font-bold font-display bg-gradient-to-r from-white via-white-10 to-white bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300 transform-gpu animate-gradient-x text-center mb-12">
 
 
 
           
         
         
-          Unlimited Distribution <br />
+         <br /> Unlimited Distribution <br />  <h2 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-aqua-600 mt-5 py-2">
+  Artist / Label
+</h2>
+ <br />
           
 
-          Elevate Your Digital Content
+          Get Your Own Deshboard
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -75,10 +81,16 @@ export default function Hero() {
   Watch Demo
 </a>
       </div>
+       
+      
+
+
       
       
         </motion.div>
+        <Marquee />
       </div>
     </div>
+    
   );
 }

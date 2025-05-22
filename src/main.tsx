@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import App from './App';
 import './index.css';
+import Marquee from './components/Marquee'; // Adjust path if different
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
