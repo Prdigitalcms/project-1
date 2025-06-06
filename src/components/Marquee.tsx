@@ -8,12 +8,15 @@ const logos: string[] = [
   "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Facebook.webp",
   "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/tiktok.webp",
   "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/vevo.webp",
+  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/apple.webp",
+  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Spotify.webp",
+  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/amazon.webp",
 ];
 
 const Marquee: React.FC = () => {
   return (
-    <div className="overflow-hidden w-full py-10 mt-10 m-8 aline-center bg-white dark:bg-black">
-      <div className="flex w-max animate-marquee">
+    <div className="overflow-hidden h-10 w-full py-20 mt-10 m-18 aline-center bg-white dark:bg-black">
+      <br /><div className="flex w-max animate-marquee">
         {[...logos, ...logos].map((src, index) => (
           <img
             key={index}

@@ -6,9 +6,9 @@ import { Check } from 'lucide-react';
 const pricingPlans = [
   
   {
-    name: 'Unlimited Lable',
-    price: '70%',
-    period: '/Lable',
+    name: 'Unlimited Artist',
+    price: '80%',
+    period: '/Artist',
     description: 'The MUST have plan for professional artists and labels.',
     highlight: 'BEST DEAL!',
     color: 'from-yellow-400 to-orange-500',
@@ -16,9 +16,9 @@ const pricingPlans = [
     features: ['Unlimited Artist', 'Unlimited Release', '200+ Store', 'Premium Features', '24 Hours Support', 'Store Automator', 'Unlimited Official Artist Channel']
   },
   {
-    name: 'Limited Artist',
-    price: '75%',
-    period: '/Artist',
+    name: 'Unlimited Artist',
+    price: '85%',
+    period: '/Lable',
     description: 'Release unlimited music plus advanced features to customize your releases.',
     color: 'from-pink-500 to-purple-500',
     buttonColor: 'bg-gradient-to-r from-pink-500 to-purple-500',
@@ -88,16 +88,16 @@ export default function Pricing() {
       </div>
 
       {/* Toggle Section */}
-      {/* <div className="flex justify-center mb-16">
+      <div className="flex justify-center mb-16">
         <div className="bg-gray-800 p-1 rounded-full inline-flex">
           <button className="px-6 py-2 rounded-full bg-white text-black font-medium">
-            UNLIMITED PLANS
+            UNLIMITED LABLE
           </button>
           <button className="px-6 py-2 rounded-full text-gray-300 hover:text-white transition-colors">
-            PAY PER RELEASE
+           UNLIMITED ARTSIT
           </button>
         </div>
-      </div> */}
+      </div>
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full h-full bg-400">
@@ -119,14 +119,14 @@ export default function Pricing() {
                 <h3 className="text-xl font-bold mb-4">{plan.name}</h3>
                 <div className="flex items-baseline mb-4">
                   <span className="text-4xl font-bold">
-                    {typeof plan.price === 'string' && plan.price.includes('Free') ? '' : ''}
+                    {typeof plan.price === 'string' && plan.price.includes('Free') ? '' : '$'}
                   </span>
                   <span className="text-5xl font-bold">{plan.price}</span>
                   <span className="text-gray-400 ml-2">{plan.period}</span>
                 </div>
                 <p className="text-gray-400 mb-6 min-h-[60px]">{plan.description}</p>
                 <button className={`w-full py-3 rounded-lg text-white font-medium mb-8 ${plan.buttonColor} hover:opacity-90 transition-opacity`}>
-                  EARN MONEY
+                  GET STARTED
                 </button>
                 <ul className="space-y-4">
                   {plan.features.map((feature, i) => (

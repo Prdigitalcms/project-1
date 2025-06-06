@@ -24,7 +24,7 @@ export default function Hero() {
               <use href="#wave" x="48" y="7" fill="rgba(0,0,0,0.2)" className="dark:fill-white/20" />
             </g>
           </svg> */}
-          <img class="w-screen h-screen object-cover object-center" src="https://static.vecteezy.com/system/resources/thumbnails/047/918/624/small_2x/music-abstract-with-headphones-horizontal-wallpaper-photo.jpg" alt="" />
+          <img className="w-screen h-screen object-cover object-center" src="https://i.pinimg.com/736x/55/ec/a1/55eca19939887886c4207ea61a2b0d95.jpg" alt="" />
 
 
         </div>
@@ -43,7 +43,7 @@ export default function Hero() {
           
         
         
-         <br /> Unlimited Distribution <br />  <h2 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-aqua-600 mt-5 py-2">
+      <br />   <br /> Unlimited Distribution <br />  <h2 className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-aqua-600 mt-5 py-2">
   Artist / Label
 </h2>
  <br />
