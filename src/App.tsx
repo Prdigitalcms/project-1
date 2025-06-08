@@ -8,13 +8,14 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ForgotPassword from './pages/ForgotPassword';
-import Pricing from './pages/Pricing';
+import Pricing from './pages/Dashboard';
 import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Marquee from './components/Marquee';
 import { ServicesSection } from './components/ServicesSection';
+import Dashboard from './pages/Dashboard';
 
 // Adjust path if different
 
@@ -31,7 +32,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

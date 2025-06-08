@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
-import Pricing from '../pages/Pricing';
+import Pricing from '../pages/Dashboard';
 import YouTube from 'react-youtube';
 import { a, link } from 'framer-motion/client';
 import Marquee from '../components/Marquee';

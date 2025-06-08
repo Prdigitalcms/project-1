@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, YoutubeIcon } from 'lucide-react';
 import YouTube from 'react-youtube';
+import { ThemeProvider } from './contexts/ThemeContext';
+
 
 export default function Footer() {
   return (

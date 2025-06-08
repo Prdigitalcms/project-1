@@ -46,66 +46,117 @@ export default function Home() {
 
 
   const features = [
-    {
-      icon: <Music className="w-6 h-6" />,
-      title: "Global Music Distribution",
-      description: "Release your music worldwide across major platforms"
-    },
-    {
-      icon: <Youtube className="w-6 h-6" />,
-      title: "Content ID",
-      description: "Protect your music and monetize your content"
-    },
-    {
-      icon: <Video className="w-6 h-6" />,
-       title: "VEVO Video Distribution",
-    description: "Get your music videos on VEVO and reach millions of viewers worldwide.",
-    }, {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Callertune Distribution",
-      description: "Make your music ring on millions of phones with our global callertune distribution network."
-    }
-    , {
-      icon: <FileText className="w-6 h-6" />,
-       title: "Lyrics Distribution",
-    description: "Distribute your song lyrics across major platforms and reach new fans.",
-    }
-     , {
-      icon: <Monitor className="w-6 h-6" />,
-        title: "Channel Management",
-    description: "Professional management of your YouTube and social media channels.",
-      
-    } , {
-      icon: <User className="w-6 h-6" />,
-      title: "Artist Management",
-    description: "Comprehensive artist management services to grow your career.",
-    
-    } , {
-      icon: <BarChart3 className="w-6 h-6" />,
-      title: "Dashboard Development",
-    description: "Custom music distribution dashboards for labels and artists.",
-     
-    } , {
-      icon: <Monitor className="w-6 h-6" />,
-        title: "Website Development",
-    description: "Professional website development for artists and music businesses.",
-     
-    } , {
-      icon: <YoutubeIcon className="w-6 h-6" />,
-      title: "Join Channel in MCN",
-    description: "Join our MCN network and get access to premium features and support.",
-     
-    } , {
-      icon: <Disc className="w-6 h-6" />,
-        title: "White Label Solution",
-    description: "Custom branded music distribution platform with your own branding and features.",
-    
-    } , {
-      icon: <Crown className="w-6 h-6" />,
-      title: "Master Dashboard Creation",
-    description: "Comprehensive master dashboard for managing multiple artists, labels, and distribution channels.",
-    }
-  ];
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white shadow">
+        <Music className="w-6 h-6" />
+      </div>
+    ),
+    title: "Global Music Distribution",
+    description: "Release your music worldwide across major platforms"
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-red-500 text-white shadow">
+        <Youtube className="w-6 h-6" />
+      </div>
+    ),
+    title: "Content ID",
+    description: "Protect your music and monetize your content"
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-purple-500 text-white shadow">
+        <Video className="w-6 h-6" />
+      </div>
+    ),
+    title: "VEVO Video Distribution",
+    description: "Get your music videos on VEVO and reach millions of viewers worldwide."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-green-500 text-white shadow">
+        <Phone className="w-6 h-6" />
+      </div>
+    ),
+    title: "Callertune Distribution",
+        colorClass: "text-black-600",
+    description: "Make your music ring on millions of phones with our global callertune distribution network."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-yellow-400 text-white shadow">
+        <FileText className="w-6 h-6" />
+      </div>
+    ),
+    title: "Lyrics Distribution",
+    description: "Distribute your song lyrics across major platforms and reach new fans."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-indigo-500 text-white shadow">
+        <Monitor className="w-6 h-6" />
+      </div>
+    ),
+    title: "Channel Management",
+    description: "Professional management of your YouTube and social media channels."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-pink-500 text-white shadow">
+        <User className="w-6 h-6" />
+      </div>
+    ),
+    title: "Artist Management",
+    description: "Comprehensive artist management services to grow your career."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-teal-500 text-white shadow">
+        <BarChart3 className="w-6 h-6" />
+      </div>
+    ),
+    title: "Dashboard Development",
+    description: "Custom music distribution dashboards for labels and artists."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-sky-600 text-white shadow">
+        <Monitor className="w-6 h-6" />
+      </div>
+    ),
+    title: "Website Development",
+    description: "Professional website development for artists and music businesses."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-red-600 text-white shadow">
+        <YoutubeIcon className="w-6 h-6" />
+      </div>
+    ),
+    title: "Join Channel in MCN",
+    description: "Join our MCN network and get access to premium features and support."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-gray-700 text-white shadow">
+        <Disc className="w-6 h-6" />
+      </div>
+    ),
+    title: "White Label Solution",
+    description: "Custom branded music distribution platform with your own branding and features."
+  },
+  {
+    icon: (
+      <div className="p-2 rounded-full bg-blue-100 shadow-md w-fit">
+        <Crown className="w-6 h-6 text-yellow-500" />
+      </div>
+    ),
+    title: "Master Dashboard Creation",
+    description: "Comprehensive master dashboard for managing multiple artists, labels, and distribution channels."
+  }
+];
+
 
   const team = [
     {
@@ -228,23 +279,36 @@ export default function Home() {
       <Hero />
 
       {/* Features Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {features.map((feature, index) => (
-              <div key={index} className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                <div className="text-blue-600 dark:text-blue-500 mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
-              </div>
-            ))}
-          </motion.div>
+      <section className="py-20  ">
+       <div className="container mx-auto px-6">
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="grid md:grid-cols-4 gap-8"
+  >
+    {features.map((feature, index) => (
+      <div
+        key={index}
+        className="bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500
+ text-black rounded-2xl p-6 shadow-xl hover:scale-105 transition-transform duration-300"
+      > <div className={` ${feature.color} w-12 h-12 rounded-lg flex items-center justify-center mb-6`}>
+            
+        <div className="mb-4  bg from-blue-400 to-blue-600">
+          {feature.icon}
         </div>
+        </div>
+        
+<h3 className={`text-xl font-extrabold mb-2 tracking-wide ${feature.colorClass}`}>
+  {feature.title}
+</h3>
+        <p className="text-white ">{feature.description}</p>
+      </div>
+    ))}
+  </motion.div>
+</div>
+
+        
       </section>
 
       {/* Latest Releases Section */}

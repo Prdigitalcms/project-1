@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { ThemeProvider } from './contexts/ThemeContext';
+
 
 export default function Login() {
   const [email, setEmail] = useState('');

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import YouTube from 'react-youtube';
 import { Play } from 'lucide-react';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 const projects = [
   {

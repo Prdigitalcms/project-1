@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Award, Globe, Users } from 'lucide-react';
+import { ThemeProvider } from './contexts/ThemeContext';
+
 
 const stats = [
   { number: '150+', label: 'Digital Platforms', icon: Globe },
@@ -9,8 +11,13 @@ const stats = [
 ];
 
 export default function About() {
+ 
   return (
-    <div className="min-h-screen bg-black text-white pt-24 pb-16">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white pt-24 pb-16 transition-colors duration-300">
+      
+      {/* Toggle Button */}
+     
+
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
         <motion.h1
@@ -28,7 +35,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl text-gray-300 max-w-3xl mx-auto"
+          className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto"
         >
           PR DIGITAL CMS is the leading independent development partner for content creators, helping build audiences and careers through technology and services across distribution, publishing administration, and promotional services.
         </motion.p>
@@ -43,11 +50,11 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-900 rounded-2xl p-8 text-center"
+              className="bg-gray-100 dark:bg-gray-900 rounded-2xl p-8 text-center hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
             >
               <stat.icon className="w-8 h-8 mx-auto mb-4 text-blue-500" />
               <h3 className="text-4xl font-bold mb-2">{stat.number}</h3>
-              <p className="text-gray-400">{stat.label}</p>
+              <p className="text-gray-700 dark:text-gray-400">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -70,7 +77,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl text-gray-300 max-w-3xl mx-auto"
+          className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto"
         >
           PR DIGITAL CMS's mission is to best serve content creators and brands in the early stages of their development in the digital ecosystem, with fairness, expertise, respect and transparency.
         </motion.p>
