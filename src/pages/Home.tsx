@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
-import { Music, Youtube, Globe, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Music, Youtube, Globe, Facebook, Instagram, Twitter, Linkedin, Phone ,Video ,FileText ,Monitor ,User,BarChart3, YoutubeIcon, Disc, Crown  } from 'lucide-react';
 import VideoFooter from '../components/VideoFooter';
 import { button, source } from 'framer-motion/client';
 import Marquee from '../components/Marquee';
@@ -55,9 +55,53 @@ export default function Home() {
       description: "Protect your music and monetize your content"
     },
     {
-      icon: <Globe className="w-6 h-6" />,
-      title: "Worldwide Reach",
-      description: "Connect with listeners from every corner of the globe"
+      icon: <Video className="w-6 h-6" />,
+       title: "VEVO Video Distribution",
+    description: "Get your music videos on VEVO and reach millions of viewers worldwide.",
+    }, {
+      icon: <Phone className="w-6 h-6" />,
+      title: "Callertune Distribution",
+      description: "Make your music ring on millions of phones with our global callertune distribution network."
+    }
+    , {
+      icon: <FileText className="w-6 h-6" />,
+       title: "Lyrics Distribution",
+    description: "Distribute your song lyrics across major platforms and reach new fans.",
+    }
+     , {
+      icon: <Monitor className="w-6 h-6" />,
+        title: "Channel Management",
+    description: "Professional management of your YouTube and social media channels.",
+      
+    } , {
+      icon: <User className="w-6 h-6" />,
+      title: "Artist Management",
+    description: "Comprehensive artist management services to grow your career.",
+    
+    } , {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Dashboard Development",
+    description: "Custom music distribution dashboards for labels and artists.",
+     
+    } , {
+      icon: <Monitor className="w-6 h-6" />,
+        title: "Website Development",
+    description: "Professional website development for artists and music businesses.",
+     
+    } , {
+      icon: <YoutubeIcon className="w-6 h-6" />,
+      title: "Join Channel in MCN",
+    description: "Join our MCN network and get access to premium features and support.",
+     
+    } , {
+      icon: <Disc className="w-6 h-6" />,
+        title: "White Label Solution",
+    description: "Custom branded music distribution platform with your own branding and features.",
+    
+    } , {
+      icon: <Crown className="w-6 h-6" />,
+      title: "Master Dashboard Creation",
+    description: "Comprehensive master dashboard for managing multiple artists, labels, and distribution channels.",
     }
   ];
 

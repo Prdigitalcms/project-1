@@ -13,7 +13,10 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
-import Marquee from './components/Marquee'; // Adjust path if different
+import Marquee from './components/Marquee';
+import { ServicesSection } from './components/ServicesSection';
+
+// Adjust path if different
 
 
 function App() {
