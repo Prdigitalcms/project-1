@@ -5,7 +5,6 @@ import Pricing from '../pages/Pricing';
 import YouTube from 'react-youtube';
 import { a, link } from 'framer-motion/client';
 import Marquee from '../components/Marquee';
-import { ServicesSection } from './components/ServicesSection';
 
 
 
@@ -83,12 +82,6 @@ export default function Hero() {
   Watch Demo
 </a>
       </div>
-       
-      
-
-
-      
-      
         </motion.div>
         <Marquee />
       </div>

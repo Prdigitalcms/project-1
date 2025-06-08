@@ -1,31 +1,29 @@
 import React from 'react';
 
-const logos: string[] = [
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/apple.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Spotify.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/amazon.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/tidal-b.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Facebook.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/tiktok.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/vevo.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/apple.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Spotify.webp",
-  "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/amazon.webp",
+const logos = [
+  { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/apple.webp", name: "Apple" },
+  { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Spotify.webp", name: "Spotify" },
+  { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/amazon.webp", name: "Amazon" },
+  { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/tidal-b.webp", name: "Tidal" },
+  { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Facebook.webp", name: "Facebook" },
+  { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/tiktok.webp", name: "TikTok" },
+  { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/vevo.webp", name: "Vevo" },
 ];
 
 const Marquee: React.FC = () => {
   return (
-    <div className="overflow-hidden h-10 w-full py-20 mt-10 m-18 aline-center bg-white dark:bg-black">
-      <br /><div className="flex w-max animate-marquee">
-        {[...logos, ...logos].map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`icon-${index}`}
-            className="mx-10 max-h-[25px] h-auto"
-            loading="lazy"
-            decoding="async"
-          />
+    <div className="overflow-hidden w-full py-10 mt-10 bg-black rounded-lg shadow-lg">
+      <div className="flex w-max animate-marquee gap-10 items-center">
+        {[...logos, ...logos].map((logo, index) => (
+          <div key={index} className="flex flex-col items-center">
+            <img
+              src={logo.src}
+              alt={`icon-${index}`}
+              className="max-h-[25px] h-auto drop-shadow"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         ))}
       </div>
     </div>
