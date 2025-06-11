@@ -6,6 +6,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
+
         display: ['Playfair Display', 'serif'],
       },
       animation: {

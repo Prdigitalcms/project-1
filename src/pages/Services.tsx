@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, Globe, Megaphone, Rocket, Shield, Users } from 'lucide-react';
 import { ThemeProvider } from './contexts/ThemeContext';
-
+import OurServices from './OurServices';
 
 const services = [
   {
@@ -112,6 +112,7 @@ export default function Services() {
           ))}
         </div>
       </div>
+      <OurServices/>
     </div>
   );
 }

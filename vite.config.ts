@@ -6,5 +6,9 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
+    fontFamily: {
+  poppins: ['Poppins', 'sans-serif'],
+}
+
   },
 });

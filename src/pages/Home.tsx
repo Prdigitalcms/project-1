@@ -5,6 +5,7 @@ import { Music, Youtube, Globe, Facebook, Instagram, Twitter, Linkedin, Phone ,V
 import VideoFooter from '../components/VideoFooter';
 import { button, div, source } from 'framer-motion/client';
 import Marquee from '../components/Marquee';
+import OurServices from './OurServices';
 
 
 
@@ -45,117 +46,117 @@ export default function Home() {
 
 
 
-  const features = [
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white shadow">
-        <Music className="w-6 h-6" />
-      </div>
-    ),
-    title: "Global Music Distribution",
-    description: "Release your music worldwide across major platforms"
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-red-500 text-white shadow">
-        <Youtube className="w-6 h-6" />
-      </div>
-    ),
-    title: "Content ID",
-    description: "Protect your music and monetize your content"
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-purple-500 text-white shadow">
-        <Video className="w-6 h-6" />
-      </div>
-    ),
-    title: "VEVO Video Distribution",
-    description: "Get your music videos on VEVO and reach millions of viewers worldwide."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-green-500 text-white shadow">
-        <Phone className="w-6 h-6" />
-      </div>
-    ),
-    title: "Callertune Distribution",
-        colorClass: "text-black-600",
-    description: "Make your music ring on millions of phones with our global callertune distribution network."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-yellow-400 text-white shadow">
-        <FileText className="w-6 h-6" />
-      </div>
-    ),
-    title: "Lyrics Distribution",
-    description: "Distribute your song lyrics across major platforms and reach new fans."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-indigo-500 text-white shadow">
-        <Monitor className="w-6 h-6" />
-      </div>
-    ),
-    title: "Channel Management",
-    description: "Professional management of your YouTube and social media channels."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-pink-500 text-white shadow">
-        <User className="w-6 h-6" />
-      </div>
-    ),
-    title: "Artist Management",
-    description: "Comprehensive artist management services to grow your career."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-teal-500 text-white shadow">
-        <BarChart3 className="w-6 h-6" />
-      </div>
-    ),
-    title: "Dashboard Development",
-    description: "Custom music distribution dashboards for labels and artists."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-sky-600 text-white shadow">
-        <Monitor className="w-6 h-6" />
-      </div>
-    ),
-    title: "Website Development",
-    description: "Professional website development for artists and music businesses."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-red-600 text-white shadow">
-        <YoutubeIcon className="w-6 h-6" />
-      </div>
-    ),
-    title: "Join Channel in MCN",
-    description: "Join our MCN network and get access to premium features and support."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-gray-700 text-white shadow">
-        <Disc className="w-6 h-6" />
-      </div>
-    ),
-    title: "White Label Solution",
-    description: "Custom branded music distribution platform with your own branding and features."
-  },
-  {
-    icon: (
-      <div className="p-2 rounded-full bg-blue-100 shadow-md w-fit">
-        <Crown className="w-6 h-6 text-yellow-500" />
-      </div>
-    ),
-    title: "Master Dashboard Creation",
-    description: "Comprehensive master dashboard for managing multiple artists, labels, and distribution channels."
-  }
-];
+//   const features = [
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-white shadow">
+//         <Music className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Global Music Distribution",
+//     description: "Release your music worldwide across major platforms"
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-red-500 text-white shadow">
+//         <Youtube className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Content ID",
+//     description: "Protect your music and monetize your content"
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-purple-500 text-white shadow">
+//         <Video className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "VEVO Video Distribution",
+//     description: "Get your music videos on VEVO and reach millions of viewers worldwide."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-green-500 text-white shadow">
+//         <Phone className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Callertune Distribution",
+//         colorClass: "text-black-600",
+//     description: "Make your music ring on millions of phones with our global callertune distribution network."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-yellow-400 text-white shadow">
+//         <FileText className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Lyrics Distribution",
+//     description: "Distribute your song lyrics across major platforms and reach new fans."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-indigo-500 text-white shadow">
+//         <Monitor className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Channel Management",
+//     description: "Professional management of your YouTube and social media channels."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-pink-500 text-white shadow">
+//         <User className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Artist Management",
+//     description: "Comprehensive artist management services to grow your career."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-teal-500 text-white shadow">
+//         <BarChart3 className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Dashboard Development",
+//     description: "Custom music distribution dashboards for labels and artists."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-sky-600 text-white shadow">
+//         <Monitor className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Website Development",
+//     description: "Professional website development for artists and music businesses."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-red-600 text-white shadow">
+//         <YoutubeIcon className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "Join Channel in MCN",
+//     description: "Join our MCN network and get access to premium features and support."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-gray-700 text-white shadow">
+//         <Disc className="w-6 h-6" />
+//       </div>
+//     ),
+//     title: "White Label Solution",
+//     description: "Custom branded music distribution platform with your own branding and features."
+//   },
+//   {
+//     icon: (
+//       <div className="p-2 rounded-full bg-blue-100 shadow-md w-fit">
+//         <Crown className="w-6 h-6 text-yellow-500" />
+//       </div>
+//     ),
+//     title: "Master Dashboard Creation",
+//     description: "Comprehensive master dashboard for managing multiple artists, labels, and distribution channels."
+//   }
+// ];
 
 
   const team = [
@@ -165,8 +166,7 @@ export default function Home() {
       image: "https://i.pinimg.com/736x/e2/54/52/e254524205172a4716c61e6bbe6fc060.jpg"
   
       
-     
-   
+
     },
     {
       name: "Pintu Yadav",
@@ -199,6 +199,11 @@ export default function Home() {
       name: "Ankit Sharma",
       role: "Manager",
       image: "https://i.pinimg.com/736x/bf/c2/41/bfc2415e3935b2ec47067ee644e9afee.jpg"
+    },
+     {
+      name: " KAMLESH LAL YADAV",
+      role: "DIGITAL",
+      image: "https://i.pinimg.com/736x/8c/df/d1/8cdfd1709534bdb5f9abae6674f7ffb4.jpg"
     }
     
   ];
@@ -273,13 +278,14 @@ export default function Home() {
       logo: "https://i0.wp.com/musically.com/wp-content/uploads/2019/01/hungama_logo-1.jpg?fit=1000%2C493&ssl=1"
     }
   ];
+  
 
   return (
     <div className="bg-white dark:bg-black transition-colors duration-300">
       <Hero />
-
+    
       {/* Features Section */}
-      <section className="py-20  ">
+      {/* <section className="py-20  ">
        <div className="container mx-auto px-6">
   <motion.div 
     initial={{ opacity: 0, y: 20 }}
@@ -309,7 +315,7 @@ export default function Home() {
 </div>
 
         
-      </section>
+      </section> */}
 
       {/* Latest Releases Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-900">
