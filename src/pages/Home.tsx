@@ -204,6 +204,11 @@ export default function Home() {
       name: " KAMLESH LAL YADAV",
       role: "DIGITAL",
       image: "https://i.pinimg.com/736x/8c/df/d1/8cdfd1709534bdb5f9abae6674f7ffb4.jpg"
+    } ,
+      {
+      name: " Aqsa Khan",
+      role: "Label Manager",
+      image: "https://i.pinimg.com/736x/11/a7/1a/11a71a18126bba59ecfe82d17405eb98.jpg"
     }
     
   ];
