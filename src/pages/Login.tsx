@@ -27,7 +27,8 @@ export default function Login() {
     const provider = new GoogleAuthProvider();
     setError('');
     try {
-      await signInWithPopup(auth, provider);
+    const data =  await signInWithPopup(auth, provider);
+    console.log(`data`,data)
       navigate("/");
     } catch (error) {
       console.error("Google Login Error", error);
