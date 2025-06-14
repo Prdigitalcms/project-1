@@ -16,33 +16,41 @@ import Projects from './pages/Projects';
 import Marquee from './components/Marquee';
 import { ServicesSection } from './components/ServicesSection';
 import Dashboard from './pages/Dashboard';
+import PrivateRoute from './components/PrivateRoute';
+import Support from './pages/Support';
 
-// Adjust path if different
+// ✅ FIX: Add this line if missing
+import { AuthProvider } from './context/AuthContext'; // adjust path if needed
 
-
-function App() {
+function WebsiteApp() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
-      <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
-      </AnimatePresence>
-      <Footer />
-      <ThemeToggle />
-    </div>
+    <AuthProvider>
+      <div className="min-h-screen bg-white dark:bg-black transition-colors duration-300">
+        <Navbar />
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/services" element={<Services />} />
+
+            {/* 🔒 Protected Route */}
+            <Route path="/support" element={<PrivateRoute><Support /></PrivateRoute>} />
+
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </AnimatePresence>
+        <Footer />
+        <ThemeToggle />
+      </div>
+    </AuthProvider>
   );
 }
 
-export default App;
+export default WebsiteApp;

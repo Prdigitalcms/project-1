@@ -40,7 +40,7 @@ export default function Login() {
       <div className="bg-white max-w-3xl rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
         {/* Right Section */}
         <div className="w-full md:w-1/2 p-8">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Sign In</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6 w-full">Sign In</h2>
 
           <form onSubmit={handleEmailLogin}>
             <input
