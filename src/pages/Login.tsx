@@ -16,7 +16,7 @@ export default function Login() {
     setError('');
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/');
+      navigate('/cms');
     } catch (err: any) {
       setError("Invalid email or password.");
     }
@@ -30,7 +30,7 @@ export default function Login() {
     const data:any =  await signInWithPopup(auth, provider);
     console.log(`data`,data)
     localStorage.setItem(`token`,data?.user?.accessToken)
-      navigate("/");
+      navigate("/cms");
     } catch (error) {
       console.error("Google Login Error", error);
       setError("Google login failed. Make sure your Firebase auth and domain are correctly configured.");
