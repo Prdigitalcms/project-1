@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import {  Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {  Routes, Route, Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { Youtube, Music, Instagram, HelpCircle, FileText, Users, Tags, Sun, Moon, DollarSign, User, Save } from 'lucide-react';
 import { ThemeProvider, useTheme } from './components/ThemeProvider';
 import { FormStorageManager } from './components/FormStorageManager';
@@ -159,6 +159,16 @@ function Sidebar() {
 }
 
 function DashboardApp() {
+  const token = localStorage.getItem('token')
+   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(!token){
+      navigate('/login')
+    }
+  }, [localStorage.getItem('token')])
+  
+
   return (
     <ThemeProvider>
       <>
