@@ -37,15 +37,15 @@ export default function Finance() {
     }
   });
 
-  const currentBalance = 127.45;
-  const maxWithdrawal = 50.00;
-  const pendingEarnings = 23.80;
+  const currentBalance = 0;
+  const maxWithdrawal = 0;
+  const pendingEarnings = 0;
 
   const transactions: Transaction[] = [
     {
       id: '1',
       type: 'earning',
-      amount: 15.30,
+      amount: 0,
       description: 'Spotify streaming royalties',
       date: '2024-12-05',
       status: 'completed'

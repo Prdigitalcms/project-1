@@ -1,5 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth";
 
 interface DashboardStats {
   releases: number;
@@ -13,36 +15,49 @@ interface EarningData {
 
 export default function Dashboard() {
   const stats: DashboardStats = {
-    releases: 106,
-    artists: 57
+    releases: 0,
+    artists: 0
   };
 
-  const earningData: EarningData[] = [
-    { name: 'Jan', amount: 24 },
-    { name: 'Feb', amount: 22 },
-    { name: 'Mar', amount: 25 },
-    { name: 'Apr', amount: 21 },
-    { name: 'May', amount: 23 },
-    { name: 'Jun', amount: 28 }
+  let earningData: EarningData[] = [
+    { name: 'Jan', amount: 0 },
+    { name: 'Feb', amount: 0 },
+    { name: 'Mar', amount: 0 },
+    { name: 'Apr', amount: 0 },
+    { name: 'May', amount: 0 },
+    { name: 'Jun', amount: 0 }
   ];
 
   const topMixes = [
-    {
-      title: "Main Jahan Rahoon",
-      artist: "Yasser Desai",
-      cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&h=200&fit=crop"
-    },
-    {
-      title: "Samastipur Jila Ke",
-      artist: "Pyare Arjun, Sapna Raj",
-      cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop"
-    }
+    // {
+    //   title: "Main Jahan Rahoon",
+    //   artist: "Yasser Desai",
+    //   cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&h=200&fit=crop"
+    // },
+    // {
+    //   title: "Samastipur Jila Ke",
+    //   artist: "Pyare Arjun, Sapna Raj",
+    //   cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop"
+    // }
   ];
+  const Dashboard = () => {
+  const [userName, setUserName] = useState("User");
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserName(user.displayName || "User");
+      }
+    });
+    
+ return () => unsubscribe();
+  }, []);
 
   return (
     <div className="p-6">
       <div className="mb-8">
-        <h1 className="text-2xl font-semibold mb-2 dark:text-white">Hi, Pintu Kumar</h1>
+        <h1 className="text-2xl font-semibold mb-2 dark:text-white">Hi,{userName}</h1>
         <p className="text-gray-600 dark:text-gray-300">Welcome to PrDigitalCms</p>
       </div>
 
@@ -111,4 +126,4 @@ export default function Dashboard() {
       </div>
     </div>
   );
-}
+}}

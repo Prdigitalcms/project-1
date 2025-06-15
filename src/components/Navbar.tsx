@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link to="/services" className="text-white hover:text-gray-300">Services</Link>
             <Link to="/about" className="text-white hover:text-gray-300">About</Link>
             <Link to="/contact" className="text-white hover:text-gray-300">Contact</Link>
-            <Link
+            {/* <Link
               to="/login"
               className="bg-white text-black px-6 py-2 rounded-full hover:bg-gray-200 transition-colors"
             >
@@ -41,7 +41,7 @@ export default function Navbar() {
               className="bg-white text-black px-6 py-2 rounded-full hover:bg-gray-200 transition-colors"
             >
               Sign Up
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile menu button */}

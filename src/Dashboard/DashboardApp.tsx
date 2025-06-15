@@ -98,7 +98,7 @@ function Sidebar() {
   ];
 
   const handleCreate = () => {
-    navigate('/create-release');
+    navigate('/cms/create-release');
   };
 
   return (
@@ -111,7 +111,7 @@ function Sidebar() {
             <p className="text-sm text-gray-600 dark:text-gray-400 truncate">
               Welcome, {currentUser.firstName}
             </p>
-          </div>
+          </div>  
         </div>
         
         <nav className="space-y-2">
@@ -119,7 +119,7 @@ function Sidebar() {
             onClick={handleCreate}
             className="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-lg px-4 py-2 flex items-center gap-2 hover:from-pink-600 hover:to-red-600 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
           >
-            <span className="text-lg">+</span> Create
+            <span className="text-lg">+</span> Create 
           </button>
           
           {menuItems.map((item) => (
