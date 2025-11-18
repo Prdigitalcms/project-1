@@ -49,7 +49,7 @@ export default function Login() {
           </h2>
 
           {/* (Optional) Social button — purely UI */}
-          <button
+          {/* <button
             type="button"
             className="w-full bg-white border border-gray-300 text-black py-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 mb-5"
           >
@@ -59,7 +59,7 @@ export default function Login() {
               className="w-5 h-5"
             />
             Continue with Google
-          </button>
+          </button> */}
 
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
             {/* Email */}
@@ -67,7 +67,7 @@ export default function Login() {
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                className="w-full text-black px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -86,7 +86,7 @@ export default function Login() {
               <input
                 type="password"
                 placeholder="Password"
-                className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                className="w-full px-4 text-black py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
                 {...register("password", {
                   required: "Password is required",
                   minLength: { value: 6, message: "At least 6 characters" },
@@ -98,7 +98,7 @@ export default function Login() {
             </div>
 
             {/* Forgot link */}
-            <p className="text-sm text-right text-gray-600 mb-4">
+            <p className="text-sm text-right text-black text-gray-600 mb-4">
               <Link to="/forgot-password" className="hover:underline">
                 Forgot password?
               </Link>
@@ -107,7 +107,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center gap-2 py-3 bg-black text-white rounded-md hover:bg-gray-900 transition disabled:opacity-60"
+              className="w-full flex items-center justify-center gap-2 py-3 bg-black text-black rounded-md hover:bg-gray-900 transition disabled:opacity-60"
             >
               {isSubmitting ? "Signing in..." : "Sign In"}
             </button>
@@ -119,7 +119,7 @@ export default function Login() {
             </p>
           )}
 
-          <p className="text-sm text-center mt-6 text-gray-700">
+          <p className="text-sm text-center text-black mt-6 text-gray-700">
             Don’t have an account?{" "}
             <Link to="/signup" className="text-blue-600 hover:underline">
               Sign Up

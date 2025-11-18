@@ -30,17 +30,17 @@ import UserProfile from "./pages/UserProfile";
 import { useSelector, useDispatch } from "react-redux";
 import { logOutUserApi } from "../features/actions/AuthAction";
 
-// Mock user data (replace with auth context later)
-// const currentUser = {
-//   firstName: 'Pintu',
-//   lastName: 'Kumar',
-//   email: 'pintu.kumar@example.com',
-//   profilePhoto:
-//     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-//   initials: 'PK',
-// };
+// // Mock user data (replace with auth context later)
+// // const currentUser = {
+// //   firstName: 'Pintu',
+// //   lastName: 'Kumar',
+// //   email: 'pintu.kumar@example.com',
+// //   profilePhoto:
+// //     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+// //   initials: 'PK',
+// // };
 
-// Theme toggle button
+// // Theme toggle button
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
@@ -86,7 +86,7 @@ function UserAvatar() {
         />
       ) : null}
       <span
-        className={`text-white font-bold text-lg ${
+        className={`text-black font-bold text-lg ${
           currentUser.profilePhoto ? "hidden" : "flex"
         } items-center justify-center w-full h-full`}
         style={{ display: currentUser.profilePhoto ? "none" : "flex" }}

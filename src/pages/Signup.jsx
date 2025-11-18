@@ -46,7 +46,7 @@ export default function Signup() {
         className="max-w-md w-full bg-white rounded-lg shadow-lg p-8"
       >
         <h2 className="text-3xl font-bold text-center mb-6">Create Account</h2>
-        {/* Google Sign-In Button */}
+        {/* Google Sign-In Button
         <button
           type="button"
           className="w-full bg-white border border-gray-300 text-black py-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2 mb-4"
@@ -57,7 +57,7 @@ export default function Signup() {
             className="w-5 h-5"
           />
           Continue with Google
-        </button>
+        </button> */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate
@@ -74,7 +74,7 @@ export default function Signup() {
             <input
               type="text"
               id="name"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
+              className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-black focus:ring-black"
               {...register("fullName", {
                 required: "Full name is required",
                 minLength: {
@@ -99,7 +99,7 @@ export default function Signup() {
             <input
               type="email"
               id="email"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
+              className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-black focus:ring-black"
               {...register("email", {
                 required: "Email is required",
                 pattern: {
@@ -124,7 +124,7 @@ export default function Signup() {
             <input
               type="password"
               id="password"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
+              className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-black focus:ring-black"
               {...register("password", {
                 required: "Password is required",
                 minLength: {

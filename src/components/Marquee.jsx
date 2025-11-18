@@ -1,6 +1,4 @@
-// components/Marquee.jsx
 import React from 'react';
-
 const logos = [
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/apple.webp", name: "Apple" },
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Spotify.webp", name: "Spotify" },
@@ -9,6 +7,7 @@ const logos = [
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Facebook.webp", name: "Facebook" },
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/tiktok.webp", name: "TikTok" },
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/vevo.webp", name: "Vevo" },
+  // duplicate the list to make seamless loop
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/apple.webp", name: "Apple" },
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/Spotify.webp", name: "Spotify" },
   { src: "https://gallery.vision/wp-content/themes/Gallery-Vision/assets/images/amazon.webp", name: "Amazon" },
@@ -17,14 +16,14 @@ const logos = [
 
 export default function Marquee() {
   return (
-    <div className="overflow-hidden w-full py-10 mt-10 rounded-lg shadow-lg bg-white dark:bg-black">
-      <div className="flex w-max animate-marquee gap-10 items-center">
-        {[...logos, ...logos].map((logo, index) => (
-          <div key={index} className="flex flex-col items-center">
+    <div className="marquee-viewport overflow-hidden mx-20 max-h-[25px] h-auto light:filter light:invert ">
+      <div className="marquee-track w-max animate-marquee" aria-hidden="true">
+        {[...logos, ...logos].map((logo, i) => (
+          <div className="marquee-item" key={i}>
             <img
               src={logo.src}
               alt={logo.name}
-              className="max-h-[25px] h-auto drop-shadow"
+              className="marquee-img max-h-[25px] h-auto "
               loading="lazy"
               decoding="async"
             />

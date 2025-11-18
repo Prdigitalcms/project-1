@@ -40,7 +40,7 @@ export default function ForgotPassword() {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
+                  className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-black focus:ring-black"
                   required
                 />
               </div>

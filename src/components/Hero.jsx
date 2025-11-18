@@ -62,7 +62,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row justify-center items-center gap-4"
           
         ><div className="flex justify-end gap-4 mt-7">
-        <a href="https://www.prdigitalcms.in/pricing">
+        <a href="/home-dashboard">
   <button className="bg-blue-600 text-white px-4 py-4 rounded-full font-medium hover:bg-blue-700 transition-colors">
     Get Started
   </button>
