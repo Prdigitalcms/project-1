@@ -16,16 +16,16 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-black-100 flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-md w-1/4 bg-white rounded-lg shadow-lg p-8"
+        className="max-w-md w-1/4 bg-white text-black rounded-lg shadow-lg p-8"
       >
         {!submitted ? (
           <>
-            <h2 className="text-3xl font-bold text-center mb-4">Reset Password</h2>
+            <h2 className="text-3xl font-bold text-black text-center mb-4">Reset Password</h2>
             <p className="text-gray-600 text-center mb-8">
               Enter your email address and we'll send you instructions to reset your password.
             </p>
@@ -40,7 +40,7 @@ export default function ForgotPassword() {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-black focus:ring-black"
+                  className="mt-1 text-black block w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black"
                   required
                 />
               </div>

@@ -33,12 +33,14 @@ export const loginUserApi = (data) => async (dispatch) => {
 export const logOutUserApi = () => async (dispatch) => {
   try {
     await AxiosIntance.post("/auth/logout");
+     dispatch(removeUser(null));
+
+
+
   } catch (error) {
     console.log("error in logout user", error);
     // error hone par bhi local se logout kar denge
-  } finally {
-    dispatch(removeUser(null));
-  }
+  }  
 };
 
 // INIT AUTH (on refresh / return) => profile API
