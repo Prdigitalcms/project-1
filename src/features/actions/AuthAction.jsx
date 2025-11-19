@@ -17,7 +17,7 @@ export const fetchRegisterApi = (data) => async (dispatch) => {
 // LOGIN
 export const loginUserApi = (data) => async (dispatch) => {
   try {
-    const res = await AxiosIntance.post("/auth/login", data);
+    const res = await AxiosIntance.post("/api/auth/login", data);
     if (res?.data?.user) {
       dispatch(addUser(res.data.user));
       return { success: true, user: res.data.user };
@@ -32,7 +32,7 @@ export const loginUserApi = (data) => async (dispatch) => {
 // LOGOUT
 export const logOutUserApi = () => async (dispatch) => {
   try {
-    await AxiosIntance.post("/auth/logout");
+    await AxiosIntance.post("/api/auth/logout");
      dispatch(removeUser(null));
 
 
