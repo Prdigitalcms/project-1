@@ -62,6 +62,7 @@ export const fetchTracksApi = async ({
   params.set("page", page);
   params.set("limit", limit);
   if (search) params.set("search", search);
+  console.log(params.toString())
   if (status && status !== "all") params.set("status", status);
   if (sortBy) params.set("sortBy", sortBy);
   if (sortOrder) params.set("sortOrder", sortOrder);
