@@ -4,7 +4,7 @@ import { removeUser } from "../features/reducers/AuthSlice";   // <-- IMPORTANT
 
 // Prefer env, fallback to localhost for dev
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+  import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/api";
 
 // Create Axios Instance
 export const AxiosIntance = axios.create({
