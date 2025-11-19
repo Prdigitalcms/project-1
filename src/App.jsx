@@ -15,8 +15,7 @@ import HomeDashboard from "./pages/HomeDashboard.jsx";
 import PrivateRoute from "./components/PrivateRoute";
 import DashboardApp from "./Dashboard/DashboardApp.jsx";
 import { useDispatch } from "react-redux";
-import { AxiosIntance } from "./config/Axios.Intance.jsx";
-import { addUser, removeUser } from "./features/reducers/AuthSlice.jsx";
+import {  removeUser } from "./features/reducers/AuthSlice.jsx";
 import { useEffect } from "react";
 import { initAuth } from "./features/actions/AuthAction";
 
