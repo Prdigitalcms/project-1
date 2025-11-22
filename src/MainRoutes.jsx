@@ -6,7 +6,7 @@ import DashboardApp from "./Dashboard/DashboardApp";
 const MainRoutes = () => {
   return (
     <Router>
-      <Routes>
+    <Routes>
         {/* Routes from Landing App */}
         <Route path="/*" element={<App />} />
 

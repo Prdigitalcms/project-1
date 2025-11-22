@@ -16,7 +16,7 @@ const logos = [
 
 export default function Marquee() {
   return (
-    <div className="marquee-viewport overflow-hidden mx-20 max-h-[25px] h-auto light:filter light:invert ">
+    <div className="marquee-viewport  light:filter light:invert  bg-[#020617]   text-sky-400">
       <div className="marquee-track w-max animate-marquee" aria-hidden="true">
         {[...logos, ...logos].map((logo, i) => (
           <div className="marquee-item" key={i}>

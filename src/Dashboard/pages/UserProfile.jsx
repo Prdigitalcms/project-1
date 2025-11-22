@@ -408,416 +408,516 @@ const [saveError, setSaveError] = useState("");
   
   
 
-  return (
-    <div className="p-6 dark:bg-gray-900 min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h1 className="text-2xl font-semibold dark:text-white">User Profile</h1>
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              All changes are automatically saved to Form Data Manager
-            </p>
-          </div>
-          <div className="flex items-center gap-4">
-            <FormSaveIndicator
-              isSaving={isSaving}
-              lastSaved={lastSaved}
-              hasUnsavedChanges={hasUnsavedChanges}
-            />
-            {saveStatus === 'saved' && (
-              <span className="text-green-600 dark:text-green-400 text-sm flex items-center gap-1">
-                <Check className="w-4 h-4" />
-                Changes saved successfully
-              </span>
-            )}
-          </div>
+ return (
+  <div className="min-h-screen bg-gray-50 dark:bg-gray-900 px-3 sm:px-6 py-4 sm:py-6">
+    <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+      {/* Top Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+        <div>
+          <h1 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+            User Profile
+          </h1>
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+            All changes are automatically saved to Form Data Manager
+          </p>
         </div>
+        <div className="flex flex-col items-start sm:items-end gap-2">
+          <FormSaveIndicator
+            isSaving={isSaving}
+            lastSaved={lastSaved}
+            hasUnsavedChanges={hasUnsavedChanges}
+          />
+          {saveStatus === "saved" && (
+            <span className="text-xs sm:text-sm text-green-600 dark:text-green-400 flex items-center gap-1">
+              <Check className="w-4 h-4" />
+              Changes saved successfully
+            </span>
+          )}
+        </div>
+      </div>
 
-        {/* Tab Navigation */}
-        <div className="flex space-x-4 mb-6 border-b border-gray-200 dark:border-gray-700">
+      {/* Tab Navigation */}
+      <div className="border-b border-gray-200 dark:border-gray-700">
+        <div className="flex gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
           {[
-            { id: 'personal', label: 'Personal Info', icon: User },
-            { id: 'password', label: 'Password', icon: Lock },
-            { id: 'bank', label: 'Bank Details', icon: CreditCard },
-            { id: 'pan', label: 'PAN Card', icon: FileText }
+            { id: "personal", label: "Personal Info", icon: User },
+            { id: "password", label: "Password", icon: Lock },
+            { id: "bank", label: "Bank Details", icon: CreditCard },
+            { id: "pan", label: "PAN Card", icon: FileText },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 border-b-2 transition-all duration-200 ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 border-b-2 text-xs sm:text-sm whitespace-nowrap transition-all duration-200 ${
                 activeTab === tab.id
-                  ? 'border-blue-500 text-blue-600 dark:text-blue-400'
-                  : 'border-transparent text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+                  ? "border-blue-500 text-blue-600 dark:text-blue-400"
+                  : "border-transparent text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
               }`}
             >
-              <tab.icon className="w-4 h-4" />
+              <tab.icon className="w-4 h-4 shrink-0" />
               {tab.label}
             </button>
           ))}
         </div>
+      </div>
 
-        {/* Personal Information Tab */}
-        {activeTab === 'personal' && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold dark:text-white">Personal Information</h2>
-              <div className="flex items-center gap-2">
-                <AutoFillButton onAutoFill={handleAutoFillPersonal} formType="user-profile-personal" />
-                <button
-                  onClick={() => setIsEditing(!isEditing)}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-                >
-                  {isEditing ? 'Cancel' : 'Edit'}
-                </button>
-              </div>
-            </div>
-
-            {/* Profile Photo Section */}
-            <div className="flex items-center gap-6 mb-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-              <div className="relative">
-                <img
-                  src={
-                    userInfo.profilePhoto ||
-                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
-                  }
-                  alt="Profile"
-                  className="w-24 h-24 rounded-full object-cover border-4 border-white dark:border-gray-600 shadow-lg"
-                />
-                {isEditing && (
-                  <label className="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full cursor-pointer hover:bg-blue-700 transition-colors">
-                    <Camera className="w-4 h-4" />
-                    <input type="file" accept="image/*" onChange={handlePhotoUpload} className="hidden" />
-                  </label>
-                )}
-              </div>
-              <div>
-                <h3 className="text-lg font-medium dark:text-white">
-                  {userInfo.firstName} {userInfo.lastName}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">{userInfo.email}</p>
-                <p className="text-sm text-gray-500 dark:text-gray-500">All data automatically saved to Form Manager</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Inputs */}
-              {[
-                ['First Name', 'firstName', 'text'],
-                ['Last Name', 'lastName', 'text'],
-                ['Email', 'email', 'email'],
-                ['Phone', 'phone', 'tel'],
-                ['Date of Birth', 'dateOfBirth', 'date'],
-                ['Address', 'address', 'text'],
-                ['City', 'city', 'text'],
-                ['State', 'state', 'text'],
-                ['PIN Code', 'pincode', 'text']
-              ].map(([label, key, type]) => (
-                <div key={key}>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{label}</label>
-                  <input
-                    type={type}
-                    value={userInfo[key]}
-                    onChange={(e) => {
-                      setUserInfo({ ...userInfo, [key]: e.target.value });
-                      setHasUnsavedChanges(true);
-                    }}
-                    disabled={!isEditing}
-                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {isEditing && (
-              <div className="flex justify-end mt-6">
-                <button
-                  onClick={() => handleSave('personal')}
-                  disabled={saveStatus === 'saving'}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
-                >
-                  {getSaveButtonContent()}
-                </button>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Password Tab */}
-        {activeTab === 'password' && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <h2 className="text-lg font-semibold mb-6 dark:text-white">Change Password</h2>
-
-            <form onSubmit={handlePasswordChange} className="space-y-4 max-w-md">
-              {/* Current Password */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Current Password
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword.current ? 'text' : 'password'}
-                    value={passwordData.currentPassword}
-                    onChange={(e) => setPasswordData({ ...passwordData, currentPassword: e.target.value })}
-                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword({ ...showPassword, current: !showPassword.current })}
-                    className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                  >
-                    {showPassword.current ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-              </div>
-
-              {/* New Password */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  New Password
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword.new ? 'text' : 'password'}
-                    value={passwordData.newPassword}
-                    onChange={(e) => setPasswordData({ ...passwordData, newPassword: e.target.value })}
-                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white"
-                    minLength={8}
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword({ ...showPassword, new: !showPassword.new })}
-                    className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                  >
-                    {showPassword.new ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  Password must be at least 8 characters long
-                </p>
-              </div>
-
-              {/* Confirm Password */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Confirm New Password
-                </label>
-                <div className="relative">
-                  <input
-                    type={showPassword.confirm ? 'text' : 'password'}
-                    value={passwordData.confirmPassword}
-                    onChange={(e) => setPasswordData({ ...passwordData, confirmPassword: e.target.value })}
-                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword({ ...showPassword, confirm: !showPassword.confirm })}
-                    className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-                  >
-                    {showPassword.confirm ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                  </button>
-                </div>
-              </div>
-
+      {/* Personal Information Tab */}
+      {activeTab === "personal" && (
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+              Personal Information
+            </h2>
+            <div className="flex items-center gap-2">
+              <AutoFillButton
+                onAutoFill={handleAutoFillPersonal}
+                formType="user-profile-personal"
+              />
               <button
-                type="submit"
-                disabled={saveStatus === 'saving'}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
+                onClick={() => setIsEditing(!isEditing)}
+                className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                {isEditing ? "Cancel" : "Edit"}
+              </button>
+            </div>
+          </div>
+
+          {/* Profile Photo Section */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+            <div className="relative">
+              <img
+                src={
+                  userInfo.profilePhoto ||
+                  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+                }
+                alt="Profile"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-white dark:border-gray-600 shadow-lg"
+              />
+              {isEditing && (
+                <label className="absolute bottom-0 right-0 bg-blue-600 text-white p-1.5 sm:p-2 rounded-full cursor-pointer hover:bg-blue-700 transition-colors">
+                  <Camera className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePhotoUpload}
+                    className="hidden"
+                  />
+                </label>
+              )}
+            </div>
+            <div>
+              <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-white">
+                {userInfo.firstName} {userInfo.lastName}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {userInfo.email}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                All data automatically saved to Form Manager
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            {[
+              ["First Name", "firstName", "text"],
+              ["Last Name", "lastName", "text"],
+              ["Email", "email", "email"],
+              ["Phone", "phone", "tel"],
+              ["Date of Birth", "dateOfBirth", "date"],
+              ["Address", "address", "text"],
+              ["City", "city", "text"],
+              ["State", "state", "text"],
+              ["PIN Code", "pincode", "text"],
+            ].map(([label, key, type]) => (
+              <div key={key}>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {label}
+                </label>
+                <input
+                  type={type}
+                  value={userInfo[key]}
+                  onChange={(e) => {
+                    setUserInfo({ ...userInfo, [key]: e.target.value });
+                    setHasUnsavedChanges(true);
+                  }}
+                  disabled={!isEditing}
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
+                />
+              </div>
+            ))}
+          </div>
+
+          {isEditing && (
+            <div className="flex justify-end mt-6">
+              <button
+                onClick={() => handleSave("personal")}
+                disabled={saveStatus === "saving"}
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50 text-sm"
               >
                 {getSaveButtonContent()}
               </button>
-              {saveError && (
-  <p className="text-xs text-red-600 mt-1">{saveError}</p>
-)}
+            </div>
+          )}
+        </div>
+      )}
 
+      {/* Password Tab */}
+      {activeTab === "password" && (
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+          <h2 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-gray-900 dark:text-white">
+            Change Password
+          </h2>
 
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                Password change details will be saved to Form Data Manager
+          <form
+            onSubmit={handlePasswordChange}
+            className="space-y-4 max-w-md text-sm"
+          >
+            {/* Current Password */}
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Current Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword.current ? "text" : "password"}
+                  value={passwordData.currentPassword}
+                  onChange={(e) =>
+                    setPasswordData({
+                      ...passwordData,
+                      currentPassword: e.target.value,
+                    })
+                  }
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    setShowPassword({
+                      ...showPassword,
+                      current: !showPassword.current,
+                    })
+                  }
+                  className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                >
+                  {showPassword.current ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            {/* New Password */}
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                New Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword.new ? "text" : "password"}
+                  value={passwordData.newPassword}
+                  onChange={(e) =>
+                    setPasswordData({
+                      ...passwordData,
+                      newPassword: e.target.value,
+                    })
+                  }
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white"
+                  minLength={8}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    setShowPassword({
+                      ...showPassword,
+                      new: !showPassword.new,
+                    })
+                  }
+                  className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                >
+                  {showPassword.new ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Password must be at least 8 characters long
               </p>
-            </form>
-          </div>
-        )}
+            </div>
 
-        {/* Bank Details Tab */}
-        {activeTab === 'bank' && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold dark:text-white">Bank Account Details</h2>
-              <div className="flex items-center gap-2">
-                <AutoFillButton onAutoFill={handleAutoFillBank} formType="user-profile-bank" />
+            {/* Confirm Password */}
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Confirm New Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword.confirm ? "text" : "password"}
+                  value={passwordData.confirmPassword}
+                  onChange={(e) =>
+                    setPasswordData({
+                      ...passwordData,
+                      confirmPassword: e.target.value,
+                    })
+                  }
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 pr-10 dark:bg-gray-700 dark:text-white"
+                  required
+                />
                 <button
-                  onClick={() => setIsEditing(!isEditing)}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+                  type="button"
+                  onClick={() =>
+                    setShowPassword({
+                      ...showPassword,
+                      confirm: !showPassword.confirm,
+                    })
+                  }
+                  className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
                 >
-                  {isEditing ? 'Cancel' : 'Edit'}
+                  {showPassword.confirm ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                ['Account Holder Name', 'accountHolderName'],
-                ['Account Number', 'accountNumber'],
-                ['IFSC Code', 'ifscCode'],
-                ['Bank Name', 'bankName'],
-                ['Branch Name', 'branchName']
-              ].map(([label, key], idx) => (
-                <div key={key} className={idx === 4 ? 'md:col-span-2' : ''}>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                    {label}
-                  </label>
+            <button
+              type="submit"
+              disabled={saveStatus === "saving"}
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50 text-sm"
+            >
+              {getSaveButtonContent()}
+            </button>
+            {saveError && (
+              <p className="text-xs text-red-600 mt-1">{saveError}</p>
+            )}
+
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              Password change details will be saved to Form Data Manager
+            </p>
+          </form>
+        </div>
+      )}
+
+      {/* Bank Details Tab */}
+      {activeTab === "bank" && (
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+              Bank Account Details
+            </h2>
+            <div className="flex items-center gap-2">
+              <AutoFillButton
+                onAutoFill={handleAutoFillBank}
+                formType="user-profile-bank"
+              />
+              <button
+                onClick={() => setIsEditing(!isEditing)}
+                className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                {isEditing ? "Cancel" : "Edit"}
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            {[
+              ["Account Holder Name", "accountHolderName"],
+              ["Account Number", "accountNumber"],
+              ["IFSC Code", "ifscCode"],
+              ["Bank Name", "bankName"],
+              ["Branch Name", "branchName"],
+            ].map(([label, key], idx) => (
+              <div key={key} className={idx === 4 ? "md:col-span-2" : ""}>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  {label}
+                </label>
+                <input
+                  type="text"
+                  value={bankDetails[key]}
+                  onChange={(e) => {
+                    const val =
+                      key === "ifscCode"
+                        ? e.target.value.toUpperCase()
+                        : e.target.value;
+                    setBankDetails({ ...bankDetails, [key]: val });
+                    setHasUnsavedChanges(true);
+                  }}
+                  disabled={!isEditing}
+                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
+                />
+              </div>
+            ))}
+          </div>
+
+          {isEditing && (
+            <div className="flex justify-end mt-6">
+              <button
+                onClick={() => handleSave("bank")}
+                disabled={saveStatus === "saving"}
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50 text-sm"
+              >
+                {getSaveButtonContent()}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* PAN Card Tab */}
+      {activeTab === "pan" && (
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
+              PAN Card Details
+            </h2>
+            <div className="flex items-center gap-2">
+              <AutoFillButton
+                onAutoFill={handleAutoFillPAN}
+                formType="user-profile-pan"
+              />
+              <button
+                onClick={() => setIsEditing(!isEditing)}
+                className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                {isEditing ? "Cancel" : "Edit"}
+              </button>
+            </div>
+          </div>
+
+          {/* PAN Card Image Section */}
+          <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
+            <h3 className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+              PAN Card Image
+            </h3>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+              {panDetails.panCardImage && (
+                <img
+                  src={panDetails.panCardImage}
+                  alt="PAN Card"
+                  className="w-40 h-28 sm:w-48 sm:h-32 object-cover rounded-lg border border-gray-300 dark:border-gray-600"
+                />
+              )}
+              {isEditing && (
+                <label className="bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors flex items-center gap-2 text-xs sm:text-sm">
+                  <Upload className="w-4 h-4" />
+                  Upload PAN Card
                   <input
-                    type="text"
-                    value={bankDetails[key]}
-                    onChange={(e) => {
-                      const val = key === 'ifscCode' ? e.target.value.toUpperCase() : e.target.value;
-                      setBankDetails({ ...bankDetails, [key]: val });
-                      setHasUnsavedChanges(true);
-                    }}
-                    disabled={!isEditing}
-                    className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
+                    type="file"
+                    accept="image/*"
+                    onChange={handlePANImageUpload}
+                    className="hidden"
                   />
-                </div>
-              ))}
+                </label>
+              )}
             </div>
-
-            {isEditing && (
-              <div className="flex justify-end mt-6">
-                <button
-                  onClick={() => handleSave('bank')}
-                  disabled={saveStatus === 'saving'}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
-                >
-                  {getSaveButtonContent()}
-                </button>
-              </div>
-            )}
           </div>
-        )}
 
-        {/* PAN Card Tab */}
-        {activeTab === 'pan' && (
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-lg font-semibold dark:text-white">PAN Card Details</h2>
-              <div className="flex items-center gap-2">
-                <AutoFillButton onAutoFill={handleAutoFillPAN} formType="user-profile-pan" />
-                <button
-                  onClick={() => setIsEditing(!isEditing)}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-                >
-                  {isEditing ? 'Cancel' : 'Edit'}
-                </button>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                PAN Number
+              </label>
+              <input
+                type="text"
+                value={panDetails.panNumber}
+                onChange={(e) => {
+                  setPANDetails({
+                    ...panDetails,
+                    panNumber: e.target.value.toUpperCase(),
+                  });
+                  setHasUnsavedChanges(true);
+                }}
+                disabled={!isEditing}
+                pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                maxLength={10}
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
+              />
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Format: ABCDE1234F
+              </p>
             </div>
 
-            {/* PAN Card Image Section */}
-            <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-              <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">PAN Card Image</h3>
-              <div className="flex items-center gap-4">
-                {panDetails.panCardImage && (
-                  <img
-                    src={panDetails.panCardImage}
-                    alt="PAN Card"
-                    className="w-48 h-32 object-cover rounded-lg border border-gray-300 dark:border-gray-600"
-                  />
-                )}
-                {isEditing && (
-                  <label className="bg-blue-600 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors flex items-center gap-2">
-                    <Upload className="w-4 h-4" />
-                    Upload PAN Card
-                    <input type="file" accept="image/*" onChange={handlePANImageUpload} className="hidden" />
-                  </label>
-                )}
-              </div>
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                PAN Holder Name
+              </label>
+              <input
+                type="text"
+                value={panDetails.panHolderName}
+                onChange={(e) => {
+                  setPANDetails({
+                    ...panDetails,
+                    panHolderName: e.target.value,
+                  });
+                  setHasUnsavedChanges(true);
+                }}
+                disabled={!isEditing}
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
+              />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* PAN Inputs */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  PAN Number
-                </label>
-                <input
-                  type="text"
-                  value={panDetails.panNumber}
-                  onChange={(e) => {
-                    setPANDetails({ ...panDetails, panNumber: e.target.value.toUpperCase() });
-                    setHasUnsavedChanges(true);
-                  }}
-                  disabled={!isEditing}
-                  pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
-                  maxLength={10}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
-                />
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Format: ABCDE1234F</p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  PAN Holder Name
-                </label>
-                <input
-                  type="text"
-                  value={panDetails.panHolderName}
-                  onChange={(e) => {
-                    setPANDetails({ ...panDetails, panHolderName: e.target.value });
-                    setHasUnsavedChanges(true);
-                  }}
-                  disabled={!isEditing}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Father's Name
-                </label>
-                <input
-                  type="text"
-                  value={panDetails.fatherName}
-                  onChange={(e) => {
-                    setPANDetails({ ...panDetails, fatherName: e.target.value });
-                    setHasUnsavedChanges(true);
-                  }}
-                  disabled={!isEditing}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Date of Birth (as per PAN)
-                </label>
-                <input
-                  type="date"
-                  value={panDetails.dateOfBirth}
-                  onChange={(e) => {
-                    setPANDetails({ ...panDetails, dateOfBirth: e.target.value });
-                    setHasUnsavedChanges(true);
-                  }}
-                  disabled={!isEditing}
-                  className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
-                />
-              </div>
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Father&apos;s Name
+              </label>
+              <input
+                type="text"
+                value={panDetails.fatherName}
+                onChange={(e) => {
+                  setPANDetails({
+                    ...panDetails,
+                    fatherName: e.target.value,
+                  });
+                  setHasUnsavedChanges(true);
+                }}
+                disabled={!isEditing}
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
+              />
             </div>
 
-            {isEditing && (
-              <div className="flex justify-end mt-6">
-                <button
-                  onClick={() => handleSave('pan')}
-                  disabled={saveStatus === 'saving'}
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
-                >
-                  {getSaveButtonContent()}
-                </button>
-              </div>
-            )}
+            <div>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Date of Birth (as per PAN)
+              </label>
+              <input
+                type="date"
+                value={panDetails.dateOfBirth}
+                onChange={(e) => {
+                  setPANDetails({
+                    ...panDetails,
+                    dateOfBirth: e.target.value,
+                  });
+                  setHasUnsavedChanges(true);
+                }}
+                disabled={!isEditing}
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm dark:bg-gray-700 dark:text-white disabled:bg-gray-100 dark:disabled:bg-gray-800"
+              />
+            </div>
           </div>
-        )}
-      </div>
+
+          {isEditing && (
+            <div className="flex justify-end mt-6">
+              <button
+                onClick={() => handleSave("pan")}
+                disabled={saveStatus === "saving"}
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50 text-sm"
+              >
+                {getSaveButtonContent()}
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </div>
-  );
+  </div>
+);
+
 }

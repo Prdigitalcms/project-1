@@ -64,7 +64,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
 
-          {/* Private / Dashboard Routes */}
+         {/* Private / Dashboard Routes */}
           <Route
             path="/user-dashboard/*"
             element={
