@@ -116,7 +116,7 @@ export const ReleaseMusic = () => {
   };
 
 return (
-  <div className="space-y-4 w-full">
+<div className="min-h-screen w-full overflow-x-hidden bg-slate-950">
     {/* Header */}
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
       <div>
@@ -486,9 +486,9 @@ return (
     )}
   </div>
 );return (
-  <div className="space-y-4 w-full max-w-full">
+<div className="space-y-4  min-h-screen w-full max-w-full overflow-x-hidden">
     {/* Header */}
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+<div className="flex flex-col mx-auto sm:px-6 py-4 sm:py-6 gap-3 sm:flex-row sm:items-center sm:justify-between w-full overflow-x-hidden">
       <div>
         <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
           Release Music

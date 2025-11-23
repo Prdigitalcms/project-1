@@ -409,10 +409,11 @@ const [saveError, setSaveError] = useState("");
   
 
  return (
-  <div className="min-h-screen bg-gray-50 dark:bg-gray-900 px-3 sm:px-6 py-4 sm:py-6">
-    <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
+<div className="min-h-screen w-full overflow-x-hidden bg-gray-50 dark:bg-gray-900 px-3 sm:px-6 py-4 sm:py-6">
+
+<div className="max-w-4xl w-full mx-auto space-y-4 sm:space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between w-full">
         <div>
           <h1 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
             User Profile

@@ -5,7 +5,7 @@ import ThemeToggle from "../components/ThemeToggle";
 
 const pricingPlans = [
   {
-    name: "Artist",
+    name: " Artist",
     price: "70%",
     period: "/Artist",
     description: "The MUST have plan for professional artists and labels.",
@@ -39,7 +39,7 @@ const pricingPlans = [
     ],
   },
   {
-    name: "White Lable",
+    name: "Unlimited Lable",
     price: "80%",
     period: "/Label",
     description:
@@ -113,7 +113,7 @@ export default function HomeDashboard() {
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 mx-auto">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 mx-auto">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
