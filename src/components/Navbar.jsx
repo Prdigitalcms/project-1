@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import ThemeToggle from "../components/ThemeToggle"; // <-- naya import (path adjust karo)
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -237,6 +239,9 @@ export default function Navbar() {
           </div>
         </motion.div>
       )}
+        <ThemeToggle />
+
     </nav>
+    
   );
 }

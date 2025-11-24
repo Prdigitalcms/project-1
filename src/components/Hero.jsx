@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, Music2, BarChart3, Globe2, Waves } from "lucide-react";
 import Marquee from "../components/Marquee";
+import ThemeToggle from "../components/ThemeToggle";
 
 export default function Hero() {
   return (
@@ -160,9 +161,17 @@ export default function Hero() {
                         <Music2 className="w-3.5 h-3.5" />
                         On 25+ Platforms
                       </div>
-                      <button className="h-7 w-7 rounded-full bg-white text-slate-900 flex items-center justify-center text-[10px] shadow-md">
-                        <Play className="w-3 h-3 ml-0.5" />
-                      </button>
+                      
+                   <a
+  href="https://open.spotify.com/album/6ItmF3X0rV9NfaDmukMvIL?si=l4qJHpHnRyOp44MOVXWqhA"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="h-7 w-7 rounded-full bg-white text-slate-900 flex items-center justify-center text-[10px] shadow-md">
+    <Play className="w-3 h-3 ml-0.5" />
+  </button>
+</a>
+
                     </div>
                   </div>
                 </div>
@@ -226,24 +235,27 @@ export default function Hero() {
                       Major DSPs
                     </span>
                   </div>
+<div className="flex flex-wrap gap-2 text-[11px] text-slate-100">
+  {[
+    { name: "Spotify", url: "https://open.spotify.com/track/0iTfJObIrR1AZkEMe4vYFH?si=1b4bc85f3f7d4ac4" },
+    { name: "Apple Music", url: "https://music.apple.com/us/album/gutlu-bhai-single/1587171077" },
+    { name: "JioSaavn", url: "https://www.jiosaavn.com/song/ye-dill-pagal/HhwFdB5,YUo" },
+    { name: "Gaana", url: "https://gaana.com/song/hamra-bhatre-ke-laika-khelawatiya-1" },
+    { name: "YouTube Music", url: "https://music.youtube.com/watch?v=cOGhZ-KDkas&list=OLAK5uy_n1bPxxMzxyQ6Sr1-UPrGxBpewrbqd1yR0" },
+    { name: "Amazon Music", url: "https://music.amazon.com/albums/B09H36N2FZ?marketplaceId=A3K6Y4MI8GDYMT&musicTerritory=IN&ref=dm_sh_YFAt97QUwlR63wHJ4bNcw4TdC" },
+  ].map((item) => (
+    <a
+      key={item.name}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="px-2.5 py-1 rounded-full bg-slate-800/80 border border-slate-600/80 hover:bg-slate-700/70 transition"
+    >
+      {item.name}
+    </a>
+  ))}
+</div>
 
-                  <div className="flex flex-wrap gap-2 text-[11px] text-slate-100">
-                    {[
-                      "Spotify",
-                      "Apple Music",
-                      "JioSaavn",
-                      "Gaana",
-                      "YouTube Music",
-                      "Amazon Music",
-                    ].map((name) => (
-                      <span
-                        key={name}
-                        className="px-2.5 py-1 rounded-full bg-slate-800/80 border border-slate-600/80"
-                      >
-                        {name}
-                      </span>
-                    ))}
-                  </div>
 
                   <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
                     <span>+ 50+ more platforms worldwide</span>
@@ -264,5 +276,8 @@ export default function Hero() {
         <Marquee />
       </div>
     </section>
+    
   );
+  <ThemeToggle />
+
 }
