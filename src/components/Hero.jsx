@@ -242,7 +242,7 @@ export default function Hero() {
     { name: "JioSaavn", url: "https://www.jiosaavn.com/song/ye-dill-pagal/HhwFdB5,YUo" },
     { name: "Gaana", url: "https://gaana.com/song/hamra-bhatre-ke-laika-khelawatiya-1" },
     { name: "YouTube Music", url: "https://music.youtube.com/watch?v=cOGhZ-KDkas&list=OLAK5uy_n1bPxxMzxyQ6Sr1-UPrGxBpewrbqd1yR0" },
-    { name: "Amazon Music", url: "https://music.amazon.com/albums/B09H36N2FZ?marketplaceId=A3K6Y4MI8GDYMT&musicTerritory=IN&ref=dm_sh_YFAt97QUwlR63wHJ4bNcw4TdC" },
+    { name: "Amazon Music", url: "https://music.amazon.com/albums/B09H36N2FZ?marketplaceId=A3K6Y4MI8GDYMT&musicTerritory=IN&ref=dm_sh_YFAt97QUwlR63wHJ4bNcw4TdC"},
   ].map((item) => (
     <a
       key={item.name}
