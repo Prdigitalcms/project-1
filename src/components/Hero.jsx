@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, Music2, BarChart3, Globe2, Waves } from "lucide-react";
 import Marquee from "../components/Marquee";
-import ThemeToggle from "../components/ThemeToggle";
+// import ThemeToggle from "../components/ThemeToggle";
 
 export default function Hero() {
   return (
@@ -278,6 +278,6 @@ export default function Hero() {
     </section>
     
   );
-  <ThemeToggle />
+  // <ThemeToggle />
 
 }
