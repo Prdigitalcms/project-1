@@ -343,10 +343,10 @@ const handleExit = () => {
 
         {/* Form */}
         <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-8 text-black">
             {/* Track Details */}
             <section>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+              <h2 className="text-xl font-semibold text-black text-gray-800 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
                 Track Details
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -357,7 +357,7 @@ const handleExit = () => {
                     name="title"
                     value={formData.title}
                     onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 text-black dark:text-white dark:border-gray-600 ${
                       errors.title ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Enter track title"
