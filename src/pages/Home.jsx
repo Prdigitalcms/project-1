@@ -5,6 +5,7 @@ import VideoFooter from '../components/VideoFooter';
 
 
 
+
 export default function Home() {
   const platforms = [       
     {
@@ -209,10 +210,11 @@ export default function Home() {
   ];
 
   const latestReleases = [
-    {
-      title: "Unmesh Tayade",
-      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-    },
+   {
+  title: "Suraj Raj",
+  image: "https://i.pinimg.com/736x/84/ee/b0/84eeb096636aca2c7c19d3f26c90cb0c.jpg",
+  link: "https://open.spotify.com/track/6wuoux4LFCGY7DOnc34bqP?si=O2M2CSjGTYmbSMAS7kJDsg&nd=1&dlsi=8e80c1897c6d417e"
+},
     {
       title: "Mann Mohini",
       image: "https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
