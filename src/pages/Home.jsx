@@ -5,6 +5,7 @@ import VideoFooter from '../components/VideoFooter';
 
 
 
+
 export default function Home() {
   const platforms = [       
     {
@@ -208,24 +209,41 @@ export default function Home() {
     
   ];
 
-  const latestReleases = [
-    {
-      title: "Unmesh Tayade",
-      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      title: "Mann Mohini",
-      image: "https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      title: "Mala Lagan",
-      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-    },
-    {
-      title: "Shrichalla",
-      image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-    }
-  ];
+
+
+
+ const latestReleases = [
+  {
+    title: "Suraj Raja",
+    image: "https://i.pinimg.com/736x/6f/b5/81/6fb581503dbea0bff30d05424646f295.jpg",
+    link: "https://open.spotify.com/track/6wuoux4LFCGY7DOnc34bqP?si=cca49dd366f043bd&nd=1&dlsi=8a16f98f60574634"
+  },
+  {
+    title: "Mann Mohini",
+    image: "https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    link: "https://example.com/mann-mohini"
+  },
+  {
+    title: "Mala Lagan",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    link: "https://example.com/mala-lagan"
+  },
+  {
+    title: "Suraj Raja",
+    image: "https://i.pinimg.com/736x/f8/54/b3/f854b3f6132171c0999ba11f0700424d.jpg",
+  link: "https://open.spotify.com/track/0qVbYeyhdDQW45l8GhFoDp?si=B1dabnGRROeNkQcU-X3tpQ&nd=1&dlsi=2468a8ff4be847ea"
+  }
+];
+{/* Latest Releases Section */}
+
+
+
+
+
+
+
+
+
 
   const services = [
     {
@@ -283,6 +301,45 @@ export default function Home() {
   return (
     <div className="bg-white dark:bg-black transition-colors duration-300">
       <Hero />
+           {/* Latest Releases Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white font-display"
+          >
+            Latest Releases
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {latestReleases.map((release, index) => (
+              <motion.a
+                key={index}
+                href={release.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="bg-white dark:bg-black rounded-lg overflow-hidden group shadow-lg block cursor-pointer"
+              >
+                <div className="relative aspect-w-3 aspect-h-4">
+                  <img
+                    src={release.image}
+                    alt={release.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{release.title}</h3>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </section>
+
     
       {/* Features Section */}
       {/* { <section className="py-20  ">

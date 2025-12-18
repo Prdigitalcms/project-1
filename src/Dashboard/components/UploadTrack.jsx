@@ -5,6 +5,8 @@ import { useFormStorage } from '../hooks/useFormStorage';
 import { AutoFillButton } from './AutoFillButton';
 import { FormSaveIndicator } from './FormSaveIndicator';
 import { uploadTrackApi, updateTrackApi } from "../../apis/TrackApis";
+import { useNavigate } from "react-router";
+
 
 
 export function UploadTrack({
@@ -44,6 +46,12 @@ const [serverPublicId, setServerPublicId] = useState("");
     coverArt: null,
     agreeToTerms: false,
   });
+const navigate = useNavigate();
+
+const handleExit = () => {
+  onClose?.();          // agar parent modal state se control kar raha ho
+  navigate("/cms");     // ya "/cms/release-music" jo bhi tumhe sahi lage
+};
 
   useEffect(() => {
     if (mode === "edit" && initialTrack) {
@@ -271,11 +279,18 @@ const [serverPublicId, setServerPublicId] = useState("");
   }
 
   return (
+    
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 overflow-y-auto">
+      
+
+      
       <div className="bg-white dark:bg-gray-800 rounded-lg w-full max-w-6xl mx-4 my-8 max-h-[90vh] overflow-y-auto">
-        {/* Header */}
-        <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 flex justify-between items-center">
+        
+        {/* Header */}  <div className="sm:sticky sm:top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-3 sm:py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+
+
           <div className="flex items-center gap-3">
+            
             <Music className="w-8 h-8 text-blue-600" />
             <div>
               <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Upload New Track</h1>
@@ -284,31 +299,54 @@ const [serverPublicId, setServerPublicId] = useState("");
               </p>
             </div>
           </div>
+          
           <div className="flex items-center gap-4">
-            <FormSaveIndicator
+            {/* <FormSaveIndicator
               isSaving={isSaving}
               lastSaved={lastSaved}
               hasUnsavedChanges={hasUnsavedChanges}
             />
-            <AutoFillButton onAutoFill={handleAutoFill} formType="upload-track" />
-            <button
+            <AutoFillButton onAutoFill={handleAutoFill} formType="upload-track" /> */}
+            {/* <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
               <X className="w-6 h-6" />
-            </button>
+            </button> */}
           </div>
         </div>
+        
+<button
+  type="button"
+  onClick={onClose}
+  className="
+    fixed right-3 sm:right-6 top-1/2 -translate-y-1/2
+    z-[60]
+    p-2 sm:p-3
+    rounded-full
+    bg-white/90 dark:bg-gray-800
+    text-gray-600 dark:text-gray-200
+    border border-gray-300 dark:border-gray-600
+    shadow-lg
+    hover:bg-gray-100 dark:hover:bg-gray-700
+    hover:text-gray-900 dark:hover:text-white
+    hover:scale-105 active:scale-95
+    transition-transform transition-colors
+  "
+>
+  <X className="w-5 h-5 sm:w-6 sm:h-6" />
+</button>
+
 
         {/* Logo Carousel */}
         <AnimatedLogoCarousel />
 
         {/* Form */}
         <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-8 text-black">
             {/* Track Details */}
             <section>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+              <h2 className="text-xl font-semibold text-black text-gray-800 dark:text-white mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
                 Track Details
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -319,7 +357,7 @@ const [serverPublicId, setServerPublicId] = useState("");
                     name="title"
                     value={formData.title}
                     onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600 ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 text-black dark:text-white dark:border-gray-600 ${
                       errors.title ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Enter track title"
